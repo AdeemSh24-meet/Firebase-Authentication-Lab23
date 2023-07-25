@@ -32,6 +32,7 @@ def signup():
             return redirect(url_for('add_tweet'))
         except:
             error = "Authentication failed"
+            return render_template("signup.html")
     else:
         return render_template("signup.html")
 
@@ -47,7 +48,8 @@ def signin():
             return redirect(url_for('add_tweet'))
         except:
             error = "Authentication failed"
-    return render_template("signin.html")
+    else:
+        return render_template("signin.html")
 
 
 @app.route('/add_tweet', methods=['GET', 'POST'])
